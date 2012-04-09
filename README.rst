@@ -13,3 +13,4 @@ Some features are :
 
 - it is possible to manage series independently of the locations of the tunes on the filesystem
 
+NB: as I'm french, the interface is all in french... sorry...
