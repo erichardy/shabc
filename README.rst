@@ -13,4 +13,7 @@ Some features are :
 
 - it is possible to manage series independently of the locations of the tunes on the filesystem
 
+- under MacOSX, the view and the playing are processed with safari. In the Linux version, timidity and a ghoscript viewer were used for those purposes. Traces of Linux version remains in the code.
+
 NB: as I'm french, the interface is all in french... sorry...
+
