@@ -1,7 +1,7 @@
 shabc
 =====
 
-shabc (shabc.sh) is a shell script useful for me when I want to use UNIX command line tools as abc2midi, abc2mps and anc2abc.
+shabc (shabc.sh) is a shell script useful for me when I want to use UNIX command line tools as abc2midi, abc2mps and abc2abc.
 
 The original development (at least 15 years ago) was made under Linux, but since I'm using an Apple computer at home, I modified it for this platform.
 
@@ -19,5 +19,5 @@ NB: as I'm french, the interface is all in french... sorry...
 
 I often use my application when I learn or re-learn Irish tunes.
 
-The scripts FaireHTML.sh is used under a Linux/apache2 server to generate web interface of my set of tunes.
+The script FaireHTML.sh is used under a Linux/apache2 server to generate web interface of my set of tunes.
 
