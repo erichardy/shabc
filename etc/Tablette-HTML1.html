@@ -1,0 +1,33 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
+<META http-equiv="Cache-Control" content="no-cache">
+<META http-equiv="Pragma" content="no-cache">
+<META http-equiv="Expires" content="0">
+<SCRIPT language="JavaScript">
+function morceauHTML(morceau) {
+        // retour = '<a href="' + morceau + '.html">' + morceau + '</a>';
+        var reg=new RegExp("[.]", "g");
+        r = morceau.split(reg)[0];
+        image = r + '.png';
+        img = '<img src="' + image + '"><br />';
+        img = '<img src="' + image + '">';
+        abc = '<iframe height="300px" width="100%" src="' + r + '.abc"></iframe>';
+        // abc = '<object><param value="'+ r + '.abc"></object>';
+        retour = img + abc;
+        // retour = '<pre>' + retour + '.png'  + '</pre>';
+        return retour;
+}
+function changeMorceau(morceau) {
+        // monmorceau = document.getElementById("morceau").innerHTML = morceauHTML(morceau);
+        document.getElementById("morceau").innerHTML = morceauHTML(morceau);
+}
+</SCRIPT>
+</head>
+<body> 
+<a href="../index.html"> Retour</a>
+<table border="0" width="100%">
+<tr>
+<td style="vertical-align:top;" width="25%">
+<form name="choixTitre">
+        <select size="20" name="titre" onchange="changeMorceau(this.options[this.selectedIndex].value)">
