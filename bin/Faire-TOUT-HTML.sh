@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export PATH="/opt/local/bin:$PATH"
+# export PATH="/opt/local/bin:$PATH"
 
 R="/var/www/MUSIC"
 
