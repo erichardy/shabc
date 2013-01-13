@@ -304,15 +304,20 @@ echo "${ABCFILE} ${MIDIFILE} ${PSFILE} $PWD"
 rm -f ABCHTML.html
 VITESSE=`grep '^Q:' ${ABCFILE} | awk '{print $2}' FS=":"`
 PARTIES=`grep '^P:' ${ABCFILE} | head -1 | awk '{print $2}' FS=":"`
-rm -f ABCIMG.jpeg
+rm -f ABCIMG*
 [ -f ${MORCEAU}001.eps ] && mv ${MORCEAU}001.eps ${PSFILE}
 convert ${PSFILE} -filter Catrom  -resize 600 ABCIMG.png
 # convert  ${PSFILE} jpg:- | convert jpg:- -resize 500 jpg:ABCIMG.jpeg
 # convert  ${PSFILE} png:- | convert png:- -resize 500 png:ABCIMG.png
+IMGSRC=""
+for I in `ls ABCIMG*`
+do
+	IMGSRC="${IMGSRC}<br /><img src=\"$PWD/$I\">"
+done
 echo "
 <html>
 <head>  
-<meta name="pragma" CONTENT="no-cache"> 
+<meta name=\"pragma\" CONTENT=\"no-cache\"> 
 <title>
      ${ABCFILE}
 </title>
@@ -326,8 +331,11 @@ Parties = ${PARTIES}<br />
 <embed height=\"30\" autostart=true src=\"file://$PWD/$MIDIFILE\">
 </embed>
 </object>
+${IMGSRC}
+<!--
 <br />
 <img src=\"$PWD/ABCIMG.png\">
+-->
 <pre>
 `cat ${ABCFILE}`
 </pre>
