@@ -43,6 +43,7 @@ do
   MID=${BASE}1.mid
   MP3=${BASE}1.mp3
   PNG=${BASE}.png
+  rm -f ${BASE}-*.png
   MakeMakefile $ABC $MID $PSFILE $MP3 $PNG
   # abcm2ps $ABC -O ${PSFILE}
   # convert ${PSFILE} -filter Catrom  -resize 600 $PNG
@@ -50,6 +51,10 @@ do
   make $MID
   make $MP3
   make $PNG
+  if [ -f ${BASE}-0.png ]
+  then
+	montage -mode Concatenate ${BASE}-*.png  -tile 1 ${PNG}
+  fi
   echo "<option value=\"$ABC\">$ABC</option>" >> $HTML
 done
 cat $HTML2 >> $HTML
