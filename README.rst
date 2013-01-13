@@ -25,5 +25,5 @@ TODO
 ====
 - manage scores on multiple pages in function grouper_Tout (bin/shabc.sh)
   montage  -mode Concatenate ABCIMG-0.png ABCIMG-1.png -tile 1 ABCIMG.png
-- manage scores on multiple pages in javascript function function morceauHTML in etc/HTML1.html
+- DONE (in FaireHTML.sh, not in javascript) : manage scores on multiple pages in javascript function function morceauHTML in etc/HTML1.html
 
