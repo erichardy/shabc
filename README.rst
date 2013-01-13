@@ -21,3 +21,9 @@ I often use my application when I learn or re-learn Irish tunes.
 
 The script FaireHTML.sh is used under a Linux/apache2 server to generate web interface of my set of tunes.
 
+TODO
+====
+- manage scores on multiple pages in function grouper_Tout (bin/shabc.sh)
+  montage  -mode Concatenate ABCIMG-0.png ABCIMG-1.png -tile 1 ABCIMG.png
+- manage scores on multiple pages in javascript function function morceauHTML in etc/HTML1.html
+
