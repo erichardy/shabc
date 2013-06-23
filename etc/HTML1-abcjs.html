@@ -1,0 +1,54 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
+<META http-equiv="Cache-Control" content="no-cache">
+<META http-equiv="Pragma" content="no-cache">
+<META http-equiv="Expires" content="0">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" ></script>
+<script type="text/javascript">
+
+</script>
+<SCRIPT language="JavaScript">
+function morceauHTML(morceau) {
+        // retour = '<a href="' + morceau + '.html">' + morceau + '</a>';
+        var reg=new RegExp("[.]", "g");
+        r = morceau.split(reg)[0];
+        image = r + '.png';
+        img = '<img src="' + image + '"><br />';
+        img = '<img src="' + image + '">';
+        Xmp3 = r + '.mp3';
+        Xmid = r + '1.mid' ;
+        mp3 = '<object><embed height="30" autostart=false src="'+ r + '1.mp3"></embed></object>';
+        midi = '<object><embed height="30" autostart=false src="'+ r + '1.mid"></embed></object>';
+	// on conserve l'iframe car c'est le seul moyen que j'ai trouvé pour avoir
+	// du contenu externe via l'attribut src="...." pour le contenu abc
+        abc = '<iframe id="iframeabc" height="300px" width="100%" src="' + r + '.abc"></iframe>';
+	abcjs_score = '<br /><div id="abcjs_score">abcjs_score</div>'
+	textabc = '<br /><textarea id="textabc" cols="75" rows="20"></textarea><br />'
+        retour = 'MIDI :' + midi + ' MP3 :' + mp3 + textabc + abcjs_score + img + abc ;
+        return retour;
+}
+function changeMorceau(morceau) {
+        // monmorceau = document.getElementById("morceau").innerHTML = morceauHTML(morceau);
+        document.getElementById("morceau").innerHTML = morceauHTML(morceau);
+
+	setTimeout(function() {
+		abctextFrame = document.getElementById("iframeabc");
+		abctext = abctextFrame.contentWindow.document.body.getElementsByTagName("pre")[0].innerHTML;
+		document.getElementById("textabc").innerHTML = abctext;
+		// alert(abctext);
+		abctextFrame.style.visibility = 'hidden';
+	//toto = $("#textabc").val();
+	//alert(toto);
+	ABCJS.renderAbc('abcjs_score', abctext)
+	},500);
+}
+</SCRIPT>
+</head>
+<body> 
+<a href=".."> Retour</a>
+<table border="0" width="100%">
+<tr>
+<td style="vertical-align:top;" width="25%">
+<form name="choixTitre">
+        <select size="20" name="titre" onchange="changeMorceau(this.options[this.selectedIndex].value)">
