@@ -1,6 +1,6 @@
 #!/bin/bash
 
-R="/var/www/MUSIC"
+R="/var/wwwMUSIC/MUSIC"
 
 cd $R
 

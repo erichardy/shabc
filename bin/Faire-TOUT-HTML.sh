@@ -2,9 +2,15 @@
 
 export PATH="/opt/local/shabc/bin:$PATH"
 
-R="/var/www/MUSIC"
+if [ $# -lt 1 ]
+then
+	R="/var/wwwMUSIC/MUSIC"
+else
+	R=$1
+fi
 
 cd $R
+git pull
 
 for REP in Divers-Irlandais Hornpipes Jigs Reels
 do
