@@ -5,6 +5,7 @@ export PATH="/opt/local/shabc/bin:$PATH"
 if [ $# -lt 1 ]
 then
 	R="/var/wwwMUSIC/MUSIC"
+	R="/var/wwwTMP/abc-irlande/"
 else
 	R=$1
 fi
