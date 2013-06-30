@@ -3,8 +3,8 @@
 HTML="index-abcjs.html"
 rm -f ${HTML}
 HTML1="/opt/local/shabc/etc/HTML1-abcjs.html"
-HTML2="/opt/local/shabc/etc/HTML2.html"
-ABCJS="/opt/local/shabc/js/abcjs_plugin_1.7.user.js"
+HTML2="/opt/local/shabc/etc/HTML2-abcjs.html"
+# ABCJS="/opt/local/shabc/js/abcjs_plugin_1.7.user.js"
 
 
 function MakeMakefile {
@@ -35,6 +35,10 @@ function MakeMakefile {
 }
 
 cat $HTML1 > $HTML
+echo '<script type="text/javascript" src="http://www.kermaer.net/js/abcjs_plugin_1.7.user.js">' >> $HTML
+echo '</script>'  >> $HTML
+echo '<script type="text/javascript" src="http://www.kermaer.net/js/abcjs_editor_1.7-min.js">' >> $HTML
+echo '</script>'  >> $HTML
 echo "<option value=\"\">Choisir un morceau</option>" >> $HTML
 
 for ABC in `ls *.abc`
@@ -58,9 +62,7 @@ do
   fi
   echo "<option value=\"$ABC\">$ABC</option>" >> $HTML
 done
-echo '<script type="text/javascript">'  >> $HTML
-cat $ABCJS >> $HTML
-echo '</script>'  >> $HTML
+# cat $ABCJS >> $HTML
 cat $HTML2 >> $HTML
 
 exit

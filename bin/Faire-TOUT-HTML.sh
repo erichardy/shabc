@@ -18,5 +18,6 @@ do
         echo $REP
 	cd $REP
 	FaireHTML.sh
+	FaireHTML-abcjs.sh
 	cd $R
 done

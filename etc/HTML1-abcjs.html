@@ -23,15 +23,18 @@ function morceauHTML(morceau) {
 	// on conserve l'iframe car c'est le seul moyen que j'ai trouvé pour avoir
 	// du contenu externe via l'attribut src="...." pour le contenu abc
         abc = '<iframe id="iframeabc" height="300px" width="100%" src="' + r + '.abc"></iframe>';
+	abcjs_midi = '<br /><div id="abcjs_midi">abcjs_midi</div>'
 	abcjs_score = '<br /><div id="abcjs_score">abcjs_score</div>'
+	abcjs_warnings = '<br /><div id="abcjs_warnings">abcjs_warnings</div>'
 	textabc = '<br /><textarea id="textabc" cols="75" rows="20"></textarea><br />'
-        retour = 'MIDI :' + midi + ' MP3 :' + mp3 + textabc + abcjs_score + img + abc ;
+        retour = 'MIDI :' + abcjs_midi + abcjs_warnings + textabc + abcjs_score + abc ;
         return retour;
 }
 function changeMorceau(morceau) {
         // monmorceau = document.getElementById("morceau").innerHTML = morceauHTML(morceau);
         document.getElementById("morceau").innerHTML = morceauHTML(morceau);
 
+	/*
 	setTimeout(function() {
 		abctextFrame = document.getElementById("iframeabc");
 		abctext = abctextFrame.contentWindow.document.body.getElementsByTagName("pre")[0].innerHTML;
@@ -42,6 +45,17 @@ function changeMorceau(morceau) {
 	//alert(toto);
 	ABCJS.renderAbc('abcjs_score', abctext)
 	},500);
+	*/
+	setTimeout(function() {
+		abctextFrame = document.getElementById("iframeabc");
+		abctext = abctextFrame.contentWindow.document.body.getElementsByTagName("pre")[0].innerHTML;
+		document.getElementById("textabc").innerHTML = abctext;
+		abctextFrame.style.visibility = 'hidden';
+		// abc_editor = new ABCJS.Editor("abctext", { canvas_id: "abcjs_score", midi_id:"midi", warnings_id:"warnings" });
+		abc_editor = new ABCJS.Editor("textabc", { canvas_id: "abcjs_score", midi_id:"abcjs_midi",warnings_id:"abcjs_warnings" });
+		
+	},500);
+
 }
 </SCRIPT>
 </head>
