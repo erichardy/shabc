@@ -17,8 +17,9 @@ function morceauHTML(morceau) {
         mp3 = '<object><embed height="30" autostart=false src="'+ r + '1.mp3"></embed></object>';
         midi = '<object><embed height="30" autostart=false src="'+ r + '1.mid"></embed></object>';
         abc = '<iframe height="300px" width="100%" src="' + r + '.abc"></iframe>';
+	pdf = '<br /><a href="' + r + '.pdf" target="_blank">PDF</a>'
         // abc = '<object><param value="'+ r + '.abc"></object>';
-        retour = 'MIDI :' + midi + ' MP3 :' + mp3 + img + abc;
+        retour = 'MIDI :' + midi + ' MP3 :' + mp3 + pdf + img + abc;
         // retour = '<pre>' + retour + '.png'  + '</pre>';
         return retour;
 }

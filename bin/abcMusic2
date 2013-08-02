@@ -17,6 +17,6 @@ for REP in Divers-Irlandais Hornpipes Jigs Reels
 do
         echo $REP
 	cd $REP
-	FaireHTML2.sh
+	FaireHTML-abcjs.sh
 	cd $R
 done
