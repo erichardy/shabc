@@ -31,6 +31,9 @@ function MakeMakefile {
 	echo "$PNG: $PSFILE" >> Makefile
 	echo "	convert ${PSFILE} -filter Catrom  -resize 600 $PNG" >> Makefile
 	echo "" >> Makefile
+	echo "$PDF: $PSFILE" >> Makefile
+	echo "	ps2pdf ${PSFILE}" >> Makefile
+	echo "" >> Makefile
 }
 
 cat $HTML1 > $HTML
@@ -43,8 +46,9 @@ do
   MID=${BASE}1.mid
   MP3=${BASE}1.mp3
   PNG=${BASE}.png
+  PDF=${BASE}.pdf
   rm -f ${BASE}-*.png
-  MakeMakefile $ABC $MID $PSFILE $MP3 $PNG
+  MakeMakefile $ABC $MID $PSFILE $MP3 $PNG $PDF
   # abcm2ps $ABC -O ${PSFILE}
   # convert ${PSFILE} -filter Catrom  -resize 600 $PNG
   make $PSFILE
