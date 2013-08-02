@@ -55,6 +55,7 @@ do
   make $MID
   make $MP3
   make $PNG
+  make $PDF
   if [ -f ${BASE}-0.png ]
   then
 	montage -mode Concatenate ${BASE}-*.png  -tile 1 ${PNG}
